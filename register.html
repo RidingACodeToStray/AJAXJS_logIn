@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	账户:<input type=text" class="nam" ><br>
+	密码:<input type="password" class="pwd"><br>
+	<input type="submit" class="btn">
+<p></p>
+</body>
+<script type="text/javascript" src="ajax.js"></script>
+<script type="text/javascript">
+		var nam = document.querySelector(".nam");
+		var pwd = document.querySelector('.pwd');
+		var btn = document.querySelector('.btn');
+		var p = document.querySelector('p');
+		//点击登录
+		btn.onclick = function(){
+			//调用ajax.js
+			ajax("post","post.php",{name:nam.value,pwd:pwd.value},function (data) {
+				p.innerHTML = nam.value +","+ data;
+				nam.value = "";//清空帐号
+				pwd.value = "";//清空密码
+			})
+	}
+</script>
+</html>
+
+
+
